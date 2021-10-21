@@ -22,14 +22,6 @@ export default function Login() {
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
-    await fetch("/api/login", requestOptions)
-      .then((user) => {setEmail(""), setPassword(""), setLoading(false);
-      console.log(user);
-      if(user.user_data !== null){
-        router.push("/admin")
-      }
-    })
-      .catch((e) => console.log(e));
   };
   return (
     <Box
