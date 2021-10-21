@@ -24,10 +24,6 @@ export default function Login() {
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
-    await fetch("/api/register", requestOptions)
-      .then((registered) => { setEmail(""); setPassword(""); setLoading(false); if (registered.success === "ok") { router.push("/login") } })
-      .catch((e) => console.log(e));
-  };
   return (
     <Box
       as="section"
