@@ -1,0 +1,50 @@
+type Product {
+    name: String!
+    url: String!
+    image: String!
+    description: String!
+    price: String!
+    id: String!
+}
+
+type User {
+  email: String! @unique
+  role: UserRole!
+}
+
+enum UserRole {
+  MANAGER
+  EMPLOYEE
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+  role: UserRole!
+}
+
+input LoginUserInput {
+  email: String!
+  password: String!
+}
+
+input ProductInput {
+    name: String!
+    url: String!
+    image: String!
+    description: String!
+    price: String!
+    id: String!
+}
+
+type Query {
+   allProducts: [Product!]
+   getProductsByID(id: String!): [Product!]
+}
+
+type Mutation {
+  createUser(data: CreateUserInput): User! @resolver(name: "create_user")
+  loginUser(data: LoginUserInput): String! @resolver(name: "login_user")
+  addProduct(id: String!, data: ProductInput): Product! @resolver(name: "add_product")
+  deleteProduct(id: String!): Product! @resolver(name: "delete_product")
+}
