@@ -33,9 +33,6 @@ const deleteProduct = async (e) => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ data: { id: e.target[0].value } }),
   };
-  await fetch("/api/deleteProduct", requestOptions)
-    .then(() => router.reload())
-    .catch((e) => console.log(e));
 }
 
 function handleChange(evt) {
