@@ -24,9 +24,7 @@ export default function Admin({ allProducts }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ product }),
     };
-    await fetch("/api/addProduct", requestOptions)
-      .then(() => router.reload())
-      .catch((e) => console.log(e));
+    
   }
 const deleteProduct = async (e) => {
   e.preventDefault();
