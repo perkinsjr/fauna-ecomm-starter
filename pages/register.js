@@ -24,6 +24,7 @@ export default function Login() {
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
+  }
   return (
     <Box
       as="section"
